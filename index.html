@@ -147,7 +147,18 @@
 
     <!-- Nav links -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="#fintorch" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">Our product</a>
+      <div class="relative">
+        <button id="product-toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="product-dropdown"
+                class="flex items-center gap-1 text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">
+          Our product
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+        <div id="product-dropdown" hidden class="absolute left-0 top-full mt-3 w-44 rounded-xl border border-white/10 bg-[#0a0a14]/95 backdrop-blur-md p-2 shadow-2xl">
+          <a href="#fintorch" class="block rounded-lg px-3 py-2 text-sm font-semibold text-gray-300 hover:text-white hover:bg-white/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">FinTorch</a>
+        </div>
+      </div>
       <a href="mailto:gradientx.tech@gmail.com" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">Contact us</a>
     </div>
 
@@ -168,7 +179,10 @@
   <!-- Mobile nav panel -->
   <div id="mobile-nav" hidden class="md:hidden border-t border-white/10 bg-[#0a0a14]/95 backdrop-blur-md px-6 py-4">
     <div class="flex flex-col gap-4">
-      <a href="#fintorch" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Our product</a>
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-2">Our product</p>
+        <a href="#fintorch" class="block pl-3 text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">FinTorch</a>
+      </div>
       <a href="mailto:gradientx.tech@gmail.com" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Contact us</a>
     </div>
   </div>
@@ -372,6 +386,21 @@
     toggle.setAttribute('aria-expanded', 'false');
     panel.hidden = true;
   }));
+
+  // "Our product" dropdown
+  const pToggle = document.getElementById('product-toggle');
+  const pMenu = document.getElementById('product-dropdown');
+  const closeProduct = () => { pToggle.setAttribute('aria-expanded', 'false'); pMenu.hidden = true; };
+  pToggle.addEventListener('click', () => {
+    const open = pToggle.getAttribute('aria-expanded') === 'true';
+    pToggle.setAttribute('aria-expanded', String(!open));
+    pMenu.hidden = open;
+  });
+  document.addEventListener('click', (ev) => {
+    if (!pMenu.hidden && !pMenu.contains(ev.target) && !pToggle.contains(ev.target)) closeProduct();
+  });
+  document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') closeProduct(); });
+  pMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeProduct));
 
   // Reveal sections as they scroll into view (skipped for reduced-motion users)
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
