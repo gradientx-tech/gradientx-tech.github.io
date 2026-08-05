@@ -231,72 +231,79 @@
 <!-- ═══════════════════════════════════════════ FINTORCH ═══ -->
 <section id="fintorch" class="py-20 sm:py-28 scroll-mt-24">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center reveal">
-      <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Meet FinTorch — our first agent</p>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See your financial future before you make the decision.</h2>
-      <p class="mt-5 text-gray-300 leading-7">
-        If you're a student, new to Canada, or just cashing your first real paycheque, nobody hands you a manual. FinTorch is being built for exactly these moments: the money moments nobody taught you.
-      </p>
-    </div>
-
-    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 reveal">
-      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-purple-500/15 text-purple-300 text-xl" aria-hidden="true">💸</div>
-        <h3 class="mt-5 text-lg font-semibold">Payday, now what?</h3>
-        <p class="mt-3 text-sm leading-6 text-gray-400">
-          Rent's covered and there's a bit left over. Ask FinTorch what your options are — savings, debt, a TFSA — and get a plain explanation that fits your actual life, not a lecture.
+    <div class="mx-auto max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Left: what the app does -->
+      <div class="reveal">
+        <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Meet FinTorch — our first agent</p>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">See your financial future before you make the decision.</h2>
+        <p class="mt-5 text-gray-300 leading-7">
+          Built for students, newcomers, and first-paycheque professionals — here's what FinTorch does, exactly as you'll see it in the demo.
         </p>
+
+        <ul class="mt-10 space-y-6">
+          <li class="flex gap-4">
+            <span class="flex-none flex h-8 w-8 items-center justify-center rounded-lg bg-purple-500/15 text-purple-300 text-xs font-bold">01</span>
+            <div>
+              <h3 class="font-semibold">Sunrise Briefing</h3>
+              <p class="mt-1 text-sm leading-6 text-gray-400">Start every day knowing exactly what matters — bills, markets, portfolio updates, and today's priorities.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-none flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300 text-xs font-bold">02</span>
+            <div>
+              <h3 class="font-semibold">Financial Radar</h3>
+              <p class="mt-1 text-sm leading-6 text-gray-400">See your financial health at a glance — score six key areas and tackle what matters first.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-none flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-300 text-xs font-bold">03</span>
+            <div>
+              <h3 class="font-semibold">Life Journey</h3>
+              <p class="mt-1 text-sm leading-6 text-gray-400">Life changes; your financial plan evolves. Tell your copilot what's changed and get an updated roadmap.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-none flex h-8 w-8 items-center justify-center rounded-lg bg-pink-500/15 text-pink-300 text-xs font-bold">04</span>
+            <div>
+              <h3 class="font-semibold">Future Simulator</h3>
+              <p class="mt-1 text-sm leading-6 text-gray-400">See tomorrow before making today's decisions — compare buying a home, changing jobs, or retiring early.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-none flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500/15 text-amber-300 text-xs font-bold">05</span>
+            <div>
+              <h3 class="font-semibold">Portfolio</h3>
+              <p class="mt-1 text-sm leading-6 text-gray-400">Everything you own on one intelligent dashboard — allocation, performance, holdings, and available cash.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <span class="flex-none flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-500/15 text-cyan-300 text-xs font-bold">06</span>
+            <div>
+              <h3 class="font-semibold">Market Lab</h3>
+              <p class="mt-1 text-sm leading-6 text-gray-400">Research any investment with AI — replay history, understand performance, and explore what-if scenarios.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="mt-10">
+          <a href="https://fintorch-survey-506432438777.us-central1.run.app" target="_blank" rel="noopener"
+             class="rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+            Try FinTorch <span aria-hidden="true">→</span>
+          </a>
+        </div>
       </div>
 
-      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300 text-xl" aria-hidden="true">🔍</div>
-        <h3 class="mt-5 text-lg font-semibold">The end-of-month mystery</h3>
-        <p class="mt-3 text-sm leading-6 text-gray-400">
-          Where did it all go? FinTorch will read your spending patterns, sort the noise, and gently flag the habits that quietly drain you. No spreadsheet required.
-        </p>
+      <!-- Right: the demo reel -->
+      <div id="video" class="reveal flex justify-center lg:justify-end scroll-mt-24">
+        <video controls preload="metadata" poster="fintorch-reel-poster.jpg" class="w-full max-w-sm rounded-3xl border border-gray-800 bg-gray-900/60 shadow-2xl">
+          <source src="fintorch-reel.mp4" type="video/mp4" />
+          Your browser doesn't support embedded video — you can <a href="fintorch-reel.mp4" class="underline">download it</a> instead.
+        </video>
       </div>
-
-      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-300 text-xl" aria-hidden="true">🧾</div>
-        <h3 class="mt-5 text-lg font-semibold">Tax season, minus the panic</h3>
-        <p class="mt-3 text-sm leading-6 text-gray-400">
-          TFSA, RRSP, FHSA — three acronyms, one confused feeling. FinTorch will explain what each account is actually for and walk you through savings choices aligned with CRA rules.
-        </p>
-      </div>
-
-      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-pink-500/15 text-pink-300 text-xl" aria-hidden="true">📈</div>
-        <h3 class="mt-5 text-lg font-semibold">"Should I be investing?"</h3>
-        <p class="mt-3 text-sm leading-6 text-gray-400">
-          Try it before you risk it. Practice in a sandbox with a virtual balance and real market prices — make your first investing mistakes for free.
-        </p>
-      </div>
-    </div>
-
-    <div class="mt-12 text-center reveal">
-      <a href="https://fintorch-survey-506432438777.us-central1.run.app" target="_blank" rel="noopener"
-         class="rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
-        Try FinTorch <span aria-hidden="true">→</span>
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ INTRO VIDEO ═══ -->
-<section id="video" class="py-20 sm:py-28 scroll-mt-24">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl text-center reveal">
-      <p class="text-sm font-semibold tracking-widest uppercase text-blue-400 mb-4">See it in action</p>
-      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">FinTorch in three minutes</h2>
-    </div>
-    <div class="mx-auto mt-12 max-w-sm reveal">
-      <video controls preload="metadata" poster="fintorch-reel-poster.jpg" class="w-full rounded-3xl border border-gray-800 bg-gray-900/60 shadow-2xl">
-        <source src="fintorch-reel.mp4" type="video/mp4" />
-        Your browser doesn't support embedded video — you can <a href="fintorch-reel.mp4" class="underline">download it</a> instead.
-      </video>
-    </div>
-  </div>
-</section>
 
 
 
