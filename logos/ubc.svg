@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50">
+  <!-- UBC Shield -->
+  <path d="M8 6 L32 6 L32 32 L20 42 L8 32 Z" fill="none" stroke="#002145" stroke-width="2.5"/>
+  <path d="M14 14 L26 14 L26 22 L20 28 L14 22 Z" fill="#002145" opacity="0.15"/>
+  <!-- Open book inside shield -->
+  <path d="M15 18 L20 20 L25 18 M20 20 L20 28" stroke="#002145" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  <path d="M15 18 L15 26 L20 28 M25 18 L25 26 L20 28" stroke="#002145" stroke-width="1" fill="none"/>
+  <!-- UBC Text -->
+  <text x="40" y="22" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="800" fill="#002145" letter-spacing="3">UBC</text>
+  <text x="40" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="500" fill="#002145" letter-spacing="0.5">The University of British Columbia</text>
+</svg>
