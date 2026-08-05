@@ -3,26 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GRADIENT X — Redefining the Future with Technology</title>
-  <meta name="description" content="GRADIENT X is a Vancouver-based technology company specializing in artificial intelligence, data intelligence, and digital transformation." />
-  <meta property="og:title" content="GRADIENT X — Redefining the Future with Technology" />
-  <meta property="og:description" content="AI, data intelligence, and digital transformation — helping businesses find their growth path in a rapidly changing world." />
+  <title>GRADIENTX — AI agents for everyday life</title>
+  <meta name="description" content="GRADIENTX builds an agent system for everyday life. Meet FinTorch: a personal guide to everyday money — plain answers, spending insights, and a risk-free way to practice investing." />
+  <meta property="og:title" content="GRADIENTX — AI agents for everyday life" />
+  <meta property="og:description" content="Meet FinTorch: a personal guide to everyday money — plain answers, spending insights, and a risk-free way to practice investing." />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRADIENTX" />
   <meta property="og:url" content="https://gradientx-tech.com/" />
   <meta property="og:image" content="https://gradientx-tech.com/logo.png" />
+  <meta property="og:image:width" content="645" />
+  <meta property="og:image:height" content="620" />
+  <meta property="og:image:alt" content="GRADIENTX logo" />
+  <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://gradientx-tech.com/" />
-  <link rel="icon" type="image/png" href="logo.png" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "GRADIENTX",
+    "url": "https://gradientx-tech.com/",
+    "logo": "https://gradientx-tech.com/logo.png",
+    "email": "gradientx.tech@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Vancouver", "addressRegion": "BC", "addressCountry": "CA" }
+  }
+  </script>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="tailwind.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     * { font-family: 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
 
-    /* Dynamic gradient background */
+    /* Dynamic gradient background — the brand vibe */
     body {
-      background: linear-gradient(135deg, 
-        #050510 0%, 
+      background: linear-gradient(135deg,
+        #050510 0%,
         #0d0618 15%,
         #0a0f1e 30%,
         #06182e 45%,
@@ -43,7 +61,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: 
+      background:
         radial-gradient(circle at 20% 30%, rgba(139, 69, 255, 0.12) 0%, transparent 40%),
         radial-gradient(circle at 80% 70%, rgba(0, 150, 255, 0.1) 0%, transparent 40%),
         radial-gradient(circle at 50% 50%, rgba(255, 0, 150, 0.06) 0%, transparent 50%),
@@ -69,16 +87,9 @@
       50% { opacity: 0.6; }
     }
 
-    /* Hero animations */
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -86,115 +97,348 @@
       to { opacity: 1; }
     }
 
-    .animate-fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 1s ease-out forwards;
-    }
+    .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+    .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
 
     .delay-200 { animation-delay: 0.2s; opacity: 0; }
     .delay-400 { animation-delay: 0.4s; opacity: 0; }
     .delay-600 { animation-delay: 0.6s; opacity: 0; }
-    .delay-800 { animation-delay: 0.8s; opacity: 0; }
+
+    /* Scroll-reveal: only hidden when JS is present (no-JS users see everything) */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .js .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+    /* Hamburger is a JS-only control — hide it for no-JS visitors (footer links cover navigation) */
+    html:not(.js) #nav-toggle { display: none; }
+
+    .card-glow { transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-glow:hover {
+      border-color: rgba(139, 69, 255, 0.5);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(139, 69, 255, 0.12);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #a78bfa, #60a5fa, #34d399);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; }
+      .delay-200, .delay-400, .delay-600 { opacity: 1; }
+    }
   </style>
 </head>
 <body class="text-white antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-black">Skip to content</a>
 
 <!-- ═══════════════════════════════════════════ HEADER ═══ -->
-<header class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+<header class="fixed inset-x-0 top-0 z-50 bg-[#0a0a14]/80 backdrop-blur-md border-b border-white/10">
   <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto" aria-label="Main navigation">
     <!-- Logo -->
-    <a href="#" class="flex items-center gap-2 -m-1.5 p-1.5">
-      <img src="logo.png" alt="GRADIENT X Logo" class="h-8 w-8" />
-      <span class="text-xl font-bold tracking-tight text-black">GRADIENT X</span>
+    <a href="index.html" class="flex items-center gap-2 -m-1.5 p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">
+      <img src="logo-footer-sm.png" alt="" width="32" height="32" class="h-8 w-8" />
+      <span class="text-xl font-bold tracking-tight text-white">GRADIENTX</span>
     </a>
 
     <!-- Nav links -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="company.html"
-         class="text-sm font-semibold text-black hover:text-gray-600 transition-colors">
-        Company
-      </a>
+      <a href="#fintorch" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">FinTorch</a>
+      <a href="#how-it-works" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">How it works</a>
+      <a href="#trust" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">Trust &amp; privacy</a>
+      <a href="company.html" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">About</a>
     </div>
 
-    <!-- CTA -->
-    <div class="flex items-center gap-4">
-      <a href="company.html"
-         class="md:hidden text-sm font-semibold text-black hover:text-gray-600 transition-colors">
-        Company
+    <!-- CTA + mobile toggle -->
+    <div class="flex items-center gap-3">
+      <a href="mailto:gradientx.tech@gmail.com?subject=FinTorch%20early%20access"
+         class="rounded-md bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-gray-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+        Get early access
       </a>
-      <a href="mailto:gradientx.tech@gmail.com"
-         class="rounded-md bg-black text-white px-5 py-2 text-sm font-semibold hover:bg-gray-800 transition-colors">
-        Get Started
-      </a>
+      <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"
+              class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
     </div>
   </nav>
+  <!-- Mobile nav panel -->
+  <div id="mobile-nav" hidden class="md:hidden border-t border-white/10 bg-[#0a0a14]/95 backdrop-blur-md px-6 py-4">
+    <div class="flex flex-col gap-4">
+      <a href="#fintorch" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">FinTorch</a>
+      <a href="#how-it-works" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">How it works</a>
+      <a href="#trust" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Trust &amp; privacy</a>
+      <a href="company.html" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">About</a>
+    </div>
+  </div>
 </header>
 
+<main id="main">
+
 <!-- ═══════════════════════════════════════════ HERO ═══ -->
-<section id="home" class="relative isolate overflow-hidden pt-24 min-h-screen flex items-center">
-  <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40 w-full">
+<section id="home" class="relative isolate overflow-hidden pt-24">
+  <div class="mx-auto max-w-7xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-24 lg:px-8">
     <div class="mx-auto max-w-4xl text-center">
       <!-- Badge -->
       <div class="inline-flex items-center gap-2 rounded-full bg-gray-900 border border-gray-800 px-4 py-1.5 text-sm font-medium text-gray-300 mb-8 animate-fade-in">
         <span class="relative flex h-2 w-2">
-          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-          <span class="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
         </span>
-        Now Accepting New Projects
+        Pre-launch — FinTorch early access list open
       </div>
 
       <!-- Headline -->
-      <h1 class="text-6xl font-bold tracking-tight text-white sm:text-7xl lg:text-8xl mb-8" style="line-height: 1.1; letter-spacing: -0.02em;">
-        <span class="block mb-4 animate-fade-in-up delay-200">The Power of Technology,</span>
-        <span class="block animate-fade-in-up delay-400">Redefining What's Possible</span>
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.08] mb-8 animate-fade-in-up delay-200">
+        AI agents for <span class="gradient-text">the rest of us</span>.
       </h1>
 
       <!-- Subtitle -->
-      <p class="mt-6 text-lg leading-8 text-gray-400 sm:text-xl max-w-2xl mx-auto animate-fade-in delay-600">
-        GRADIENT X is an innovative technology company driven by cutting-edge tech. We specialize in artificial intelligence, data intelligence, and digital transformation — helping businesses find their growth path in a rapidly changing world.
+      <p class="text-lg leading-8 text-gray-300 sm:text-xl max-w-2xl mx-auto animate-fade-in delay-400">
+        The most capable AI today serves enterprises and experts. GRADIENTX builds an agent system for everyday life — starting with FinTorch, your personal guide to everyday money.
       </p>
 
-      <!-- Location -->
-      <p class="mt-16 text-xs text-gray-600 tracking-widest uppercase animate-fade-in delay-1000">UBC · Vancouver · British Columbia</p>
+      <!-- CTAs -->
+      <div class="mt-10 flex items-center justify-center gap-4 animate-fade-in delay-600">
+        <a href="mailto:gradientx.tech@gmail.com?subject=FinTorch%20early%20access"
+           class="rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+          Get early access
+        </a>
+        <a href="#fintorch" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1 py-1">
+          Meet FinTorch <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+
+      <p class="mt-16 text-xs text-gray-400 tracking-widest uppercase animate-fade-in delay-600">UBC · Vancouver · British Columbia</p>
     </div>
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════ FINTORCH ═══ -->
+<section id="fintorch" class="py-20 sm:py-28 scroll-mt-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center reveal">
+      <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Meet FinTorch — our first agent</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Finally, money makes sense.</h2>
+      <p class="mt-5 text-gray-300 leading-7">
+        If you're a student, new to Canada, or just cashing your first real paycheque, nobody hands you a manual. FinTorch is being built for exactly these moments: the money moments nobody taught you.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 reveal">
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-purple-500/15 text-purple-300 text-xl" aria-hidden="true">💸</div>
+        <h3 class="mt-5 text-lg font-semibold">Payday, now what?</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          Rent's covered and there's a bit left over. Ask FinTorch what your options are — savings, debt, a TFSA — and get a plain explanation that fits your actual life, not a lecture.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300 text-xl" aria-hidden="true">🔍</div>
+        <h3 class="mt-5 text-lg font-semibold">The end-of-month mystery</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          Where did it all go? FinTorch will read your spending patterns, sort the noise, and gently flag the habits that quietly drain you. No spreadsheet required.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-300 text-xl" aria-hidden="true">🧾</div>
+        <h3 class="mt-5 text-lg font-semibold">Tax season, minus the panic</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          TFSA, RRSP, FHSA — three acronyms, one confused feeling. FinTorch will explain what each account is actually for and walk you through savings choices aligned with CRA rules.
+        </p>
+      </div>
+
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-pink-500/15 text-pink-300 text-xl" aria-hidden="true">📈</div>
+        <h3 class="mt-5 text-lg font-semibold">"Should I be investing?"</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          Try it before you risk it. Practice in a sandbox with a virtual balance and real market prices — make your first investing mistakes for free.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ HOW IT WORKS ═══ -->
+<section id="how-it-works" class="py-20 sm:py-28 scroll-mt-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center reveal">
+      <p class="text-sm font-semibold tracking-widest uppercase text-blue-400 mb-4">How it works</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Not another chatbot. A system of agents.</h2>
+      <p class="mt-5 text-gray-300 leading-7">
+        FinTorch is being built as a system of specialized agents that will learn your money life and work together — grounded in trusted Canadian sources like the CRA and the Bank of Canada, with reasoning you'll be able to check for yourself.
+      </p>
+    </div>
+
+    <ol class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 reveal">
+      <li class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-gray-400">01</span>
+          <span class="rounded-full bg-purple-500/15 text-purple-300 px-3 py-1 text-xs font-semibold">In development</span>
+        </div>
+        <h3 class="mt-4 text-lg font-semibold">Ask anything, in plain words</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          Type a question the way you'd ask a friend. The tutor agent answers in plain English and remembers your goals, so its guidance gets more personal the more you use it.
+        </p>
+      </li>
+      <li class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-gray-400">02</span>
+          <span class="rounded-full bg-blue-500/15 text-blue-300 px-3 py-1 text-xs font-semibold">In design</span>
+        </div>
+        <h3 class="mt-4 text-lg font-semibold">Let it learn your money life</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          Add expenses or snap a receipt. The spending agent sorts your patterns, spots what drains you, and turns them into small, doable changes you can make this week.
+        </p>
+      </li>
+      <li class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-bold text-gray-400">03</span>
+          <span class="rounded-full bg-emerald-500/15 text-emerald-300 px-3 py-1 text-xs font-semibold">In design</span>
+        </div>
+        <h3 class="mt-4 text-lg font-semibold">Practice before you play for real</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          Open the sandbox: a virtual balance, real market data, and friendly feedback on every practice trade. Mistakes here cost you nothing — that's the point.
+        </p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ TRUST & PRIVACY ═══ -->
+<section id="trust" class="py-20 sm:py-28 scroll-mt-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center reveal">
+      <p class="text-sm font-semibold tracking-widest uppercase text-emerald-400 mb-4">Trust &amp; privacy</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Private by design. Honest by default.</h2>
+      <p class="mt-5 text-gray-300 leading-7">
+        A money guide only works if you can trust it completely. These are architecture decisions being made before launch — not patches promised after.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 reveal">
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <h3 class="text-lg font-semibold">No bank login needed</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          FinTorch is designed to work without connecting your bank account or handing over personal information. You choose what it sees — always.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <h3 class="text-lg font-semibold">Your data stays yours</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          We're building with strong encryption and a fully anonymous mode that keeps processing on your own device. A money guide should never be a data grab.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <h3 class="text-lg font-semibold">Answers that show their work</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          Guidance will be grounded in verified Canadian sources — the CRA, the Bank of Canada — and every recommendation is designed to come with an explanation you can check yourself.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <h3 class="text-lg font-semibold">A tutor, not a broker</h3>
+        <p class="mt-3 text-sm leading-6 text-gray-400">
+          FinTorch offers educational guidance, not financial advice. It doesn't sell products or push trades — and the investing sandbox uses simulated balances only, never your real money.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ WHY WE EXIST ═══ -->
+<section id="why" class="py-20 sm:py-28 scroll-mt-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-2xl text-center reveal">
+      <p class="text-sm font-semibold tracking-widest uppercase text-pink-400 mb-4">Why we exist</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">The beginner gap is real</h2>
+      <p class="mt-5 text-gray-300 leading-7">
+        Fear is what happens when nobody teaches you the rules. Most money tools are built for people who already get it, and good advice usually comes with high consultation fees and office hours. An agent shouldn't.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 reveal">
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 text-center card-glow">
+        <p class="text-4xl font-bold gradient-text">Nearly half</p>
+        <p class="mt-3 text-sm leading-6 text-gray-400">of Canadians struggle to meet their household financial needs.</p>
+        <p class="mt-4 text-xs text-gray-400">Source: Statistics Canada</p>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 text-center card-glow">
+        <p class="text-4xl font-bold gradient-text">51%</p>
+        <p class="mt-3 text-sm leading-6 text-gray-400">of newcomers say they have little to no understanding of investing.</p>
+        <p class="mt-4 text-xs text-gray-400">Source: TD survey, 2025</p>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 text-center card-glow">
+        <p class="text-4xl font-bold gradient-text">76%</p>
+        <p class="mt-3 text-sm leading-6 text-gray-400">of newcomers polled fear making financial mistakes.</p>
+        <p class="mt-4 text-xs text-gray-400">Source: TD survey, 2025</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ EARLY ACCESS CTA ═══ -->
+<section id="early-access" class="py-20 sm:py-28 scroll-mt-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-4xl rounded-3xl bg-gray-900/60 border border-gray-800 px-8 py-16 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Early enough that you can shape it</h2>
+      <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
+        FinTorch is being built right now, for real students, newcomers, and first-paycheque professionals. Early users get a direct line to the people building it — and a real say in what the agents learn to do first.
+      </p>
+      <p class="mt-4 text-gray-400 max-w-xl mx-auto">
+        Email us one money question you wish someone would just answer. That's it — that's the application.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="mailto:gradientx.tech@gmail.com?subject=FinTorch%20early%20access"
+           class="rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+          Get early access
+        </a>
+        <span class="text-sm text-gray-400">gradientx.tech@gmail.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
 <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
 <footer class="border-t border-gray-800" aria-labelledby="footer-heading">
   <h2 id="footer-heading" class="sr-only">Footer</h2>
-  <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
+  <div class="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8">
     <div class="xl:grid xl:grid-cols-3 xl:gap-8">
       <!-- Brand -->
       <div class="space-y-6">
         <div class="flex items-center gap-2">
-          <img src="logo-footer.png" alt="GRADIENT X Logo" class="h-8 w-8" />
-          <span class="text-xl font-bold text-white">GRADIENT X</span>
+          <img src="logo-footer-sm.png" alt="" width="32" height="32" class="h-8 w-8" />
+          <span class="text-xl font-bold text-white">GRADIENTX</span>
         </div>
         <p class="text-sm leading-6 text-gray-400">
-          Redefining what's possible with the power of technology.
+          An agent system for everyday life — starting with your money.
         </p>
       </div>
 
       <!-- Links -->
       <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
         <div>
-          <h3 class="text-sm font-semibold text-white">Services</h3>
+          <h3 class="text-sm font-semibold text-white">Explore</h3>
           <ul class="mt-4 space-y-3">
-            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors">AI Development</a></li>
-            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors">Data Intelligence</a></li>
-            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors">Digital Transformation</a></li>
-            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors">Full-Stack Dev</a></li>
+            <li><a href="#fintorch" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">FinTorch</a></li>
+            <li><a href="#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">How it works</a></li>
+            <li><a href="#trust" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Trust &amp; privacy</a></li>
+            <li><a href="#why" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Why we exist</a></li>
           </ul>
         </div>
         <div>
           <h3 class="text-sm font-semibold text-white">Company</h3>
           <ul class="mt-4 space-y-3">
-            <li><a href="company.html" class="text-sm text-gray-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="company.html" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">About</a></li>
+            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -202,28 +446,45 @@
 
     <!-- Bottom bar -->
     <div class="mt-16 border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-xs text-gray-500">
-        &copy; 2026 GRADIENT X. All rights reserved.
+      <p class="text-xs text-gray-400">
+        &copy; 2026 GRADIENTX. All rights reserved. FinTorch offers educational guidance, not financial advice.
       </p>
-      <p class="text-xs text-gray-500">Vancouver, BC, Canada 🇨🇦</p>
+      <p class="text-xs text-gray-400">Vancouver, BC, Canada <span aria-hidden="true">🇨🇦</span></p>
     </div>
   </div>
 </footer>
 
 <!-- ═══════════════════════════════════════════ SCRIPTS ═══ -->
 <script>
-  // Smooth scroll for navigation
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href.length < 2) return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+  document.documentElement.classList.add('js');
+
+  // Mobile nav toggle (native CSS scroll-behavior handles smooth in-page scrolling)
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    panel.hidden = open;
   });
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    panel.hidden = true;
+  }));
+
+  // Reveal sections as they scroll into view (skipped for reduced-motion users)
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+  } else {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
 </script>
 </body>
 </html>

@@ -3,23 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Company — GRADIENT X</title>
-  <meta name="description" content="GRADIENT X turns state-of-the-art machine learning research into products and systems businesses can use. Founded in Vancouver with roots at UBC." />
-  <meta property="og:title" content="Company — GRADIENT X" />
-  <meta property="og:description" content="Research-grade thinking, product-grade delivery. AI development, data intelligence, digital transformation, and full-stack engineering." />
+  <title>About — GRADIENTX</title>
+  <meta name="description" content="GRADIENTX was started by researchers, not bankers. We're building an agent system for everyday life — starting with FinTorch, a personal guide to everyday money." />
+  <meta property="og:title" content="About — GRADIENTX" />
+  <meta property="og:description" content="Started by researchers, not bankers. Building an agent system for everyday life — starting with FinTorch, a personal guide to everyday money." />
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GRADIENTX" />
   <meta property="og:url" content="https://gradientx-tech.com/company.html" />
   <meta property="og:image" content="https://gradientx-tech.com/logo.png" />
+  <meta name="twitter:card" content="summary" />
   <link rel="canonical" href="https://gradientx-tech.com/company.html" />
-  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="tailwind.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
   <style>
     * { font-family: 'Inter', sans-serif; }
     html { scroll-behavior: smooth; }
 
-    /* Dynamic gradient background */
+    /* Dynamic gradient background — the brand vibe */
     body {
       background: linear-gradient(135deg,
         #050510 0%,
@@ -86,9 +90,12 @@
     .delay-400 { animation-delay: 0.4s; opacity: 0; }
     .delay-600 { animation-delay: 0.6s; opacity: 0; }
 
-    /* Scroll-reveal: sections start hidden, .revealed fades them in */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
-    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    /* Scroll-reveal: only hidden when JS is present (no-JS users see everything) */
+    .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+    .js .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+    /* Hamburger is a JS-only control — hide it for no-JS visitors (footer links cover navigation) */
+    html:not(.js) #nav-toggle { display: none; }
 
     .card-glow { transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; }
     .card-glow:hover {
@@ -103,172 +110,183 @@
       background-clip: text;
       color: transparent;
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; }
+      .delay-200, .delay-400, .delay-600 { opacity: 1; }
+    }
   </style>
 </head>
 <body class="text-white antialiased">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-black">Skip to content</a>
 
 <!-- ═══════════════════════════════════════════ HEADER ═══ -->
-<header class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+<header class="fixed inset-x-0 top-0 z-50 bg-[#0a0a14]/80 backdrop-blur-md border-b border-white/10">
   <nav class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto" aria-label="Main navigation">
-    <a href="index.html" class="flex items-center gap-2 -m-1.5 p-1.5">
-      <img src="logo.png" alt="GRADIENT X Logo" class="h-8 w-8" />
-      <span class="text-xl font-bold tracking-tight text-black">GRADIENT X</span>
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2 -m-1.5 p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">
+      <img src="logo-footer-sm.png" alt="" width="32" height="32" class="h-8 w-8" />
+      <span class="text-xl font-bold tracking-tight text-white">GRADIENTX</span>
     </a>
 
+    <!-- Nav links -->
     <div class="hidden md:flex items-center gap-8">
-      <a href="index.html" class="text-sm font-semibold text-black hover:text-gray-600 transition-colors">Home</a>
-      <a href="#about" class="text-sm font-semibold text-black hover:text-gray-600 transition-colors">About</a>
-      <a href="#services" class="text-sm font-semibold text-black hover:text-gray-600 transition-colors">What We Do</a>
-      <a href="#approach" class="text-sm font-semibold text-black hover:text-gray-600 transition-colors">How We Work</a>
+      <a href="index.html#fintorch" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">FinTorch</a>
+      <a href="index.html#how-it-works" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">How it works</a>
+      <a href="index.html#trust" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">Trust &amp; privacy</a>
+      <a href="company.html" aria-current="page" class="text-sm font-semibold text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1">About</a>
     </div>
 
-    <div class="flex items-center gap-4">
-      <a href="mailto:gradientx.tech@gmail.com"
-         class="rounded-md bg-black text-white px-5 py-2 text-sm font-semibold hover:bg-gray-800 transition-colors">
-        Contact Us
+    <!-- CTA + mobile toggle -->
+    <div class="flex items-center gap-3">
+      <a href="mailto:gradientx.tech@gmail.com?subject=FinTorch%20early%20access"
+         class="rounded-md bg-white text-black px-4 py-2 text-sm font-semibold hover:bg-gray-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+        Get early access
       </a>
+      <button id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menu"
+              class="md:hidden inline-flex items-center justify-center rounded-md p-2 text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </button>
     </div>
   </nav>
+  <!-- Mobile nav panel -->
+  <div id="mobile-nav" hidden class="md:hidden border-t border-white/10 bg-[#0a0a14]/95 backdrop-blur-md px-6 py-4">
+    <div class="flex flex-col gap-4">
+      <a href="index.html#fintorch" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">FinTorch</a>
+      <a href="index.html#how-it-works" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">How it works</a>
+      <a href="index.html#trust" class="text-sm font-semibold text-gray-300 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Trust &amp; privacy</a>
+      <a href="company.html" aria-current="page" class="text-sm font-semibold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">About</a>
+    </div>
+  </div>
 </header>
+
+<main id="main">
 
 <!-- ═══════════════════════════════════════════ PAGE HERO ═══ -->
 <section class="relative isolate overflow-hidden pt-24">
-  <div class="mx-auto max-w-7xl px-6 pt-24 pb-16 sm:pt-32 sm:pb-20 lg:px-8">
+  <div class="mx-auto max-w-7xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20 lg:px-8">
     <div class="mx-auto max-w-3xl text-center">
-      <p class="text-sm font-semibold tracking-widest uppercase text-gray-500 mb-6 animate-fade-in">Our Company</p>
-      <h1 class="text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl animate-fade-in-up delay-200" style="line-height: 1.1; letter-spacing: -0.02em;">
-        Built at the <span class="gradient-text">frontier</span><br />of applied AI
+      <p class="text-sm font-semibold tracking-widest uppercase text-gray-400 mb-6 animate-fade-in">About GRADIENTX</p>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] animate-fade-in-up delay-200">
+        The best AI shouldn't be a <span class="gradient-text">corporate perk</span>.
       </h1>
-      <p class="mt-8 text-lg leading-8 text-gray-400 sm:text-xl max-w-2xl mx-auto animate-fade-in delay-400">
-        GRADIENT X turns state-of-the-art machine learning research into products and systems that businesses can actually use — from intelligent automation to data platforms built for scale.
+      <p class="mt-8 text-lg leading-8 text-gray-300 sm:text-xl max-w-2xl mx-auto animate-fade-in delay-400">
+        The most capable AI today serves enterprises and experts. GRADIENTX exists to point it the other way: an agent system for ordinary people's everyday lives — starting with money, the part nobody teaches you.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ ABOUT ═══ -->
-<section id="about" class="py-20 sm:py-28">
+<!-- ═══════════════════════════════════════════ WHO WE ARE ═══ -->
+<section id="who-we-are" class="py-20 sm:py-28 scroll-mt-24">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-4xl reveal">
       <div class="grid md:grid-cols-2 gap-12 items-start">
         <div>
-          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Who We Are</p>
-          <h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="letter-spacing: -0.02em;">
-            Research-grade thinking, product-grade delivery
-          </h2>
+          <p class="text-sm font-semibold tracking-widest uppercase text-purple-400 mb-4">Who we are</p>
+          <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Researchers, not bankers</h2>
         </div>
-        <div class="space-y-5 text-gray-400 leading-7">
+        <div class="space-y-5 text-gray-300 leading-7">
           <p>
-            GRADIENT X is a technology company founded in Vancouver, British Columbia, with roots at UBC. We work at the intersection of artificial intelligence, data intelligence, and digital transformation.
+            GRADIENTX was started by researchers, not bankers — with roots at the University of British Columbia and Dalhousie, building from Vancouver.
           </p>
           <p>
-            Our team combines deep machine learning research experience with hands-on engineering. That means we don't just prototype ideas — we ship systems that hold up in production and keep improving after launch.
+            We started with money because the gap is personal: students, newcomers, and first-paycheque professionals are handed a complex financial system and no manual. Our answer is FinTorch — a system of agents that teaches, watches out for you, and lets you practice safely.
+          </p>
+          <p>
+            We're early, and we say so. What we bring is research-grade rigor: privacy treated as architecture, guidance built to cite verified sources, and claims we can stand behind.
           </p>
         </div>
       </div>
 
-      <!-- Stats -->
+      <!-- Facts -->
       <dl class="mt-16 grid grid-cols-2 gap-6 sm:grid-cols-4">
         <div class="rounded-2xl bg-gray-900/60 border border-gray-800 px-6 py-8 text-center card-glow">
-          <dt class="text-xs text-gray-500 uppercase tracking-wider">Founded</dt>
-          <dd class="mt-2 text-3xl font-bold">2025</dd>
+          <dt class="text-xs text-gray-400 uppercase tracking-wider">Home base</dt>
+          <dd class="mt-2 text-2xl font-bold">Vancouver</dd>
         </div>
         <div class="rounded-2xl bg-gray-900/60 border border-gray-800 px-6 py-8 text-center card-glow">
-          <dt class="text-xs text-gray-500 uppercase tracking-wider">Based In</dt>
-          <dd class="mt-2 text-3xl font-bold">YVR</dd>
+          <dt class="text-xs text-gray-400 uppercase tracking-wider">Roots</dt>
+          <dd class="mt-2 text-2xl font-bold">UBC</dd>
         </div>
         <div class="rounded-2xl bg-gray-900/60 border border-gray-800 px-6 py-8 text-center card-glow">
-          <dt class="text-xs text-gray-500 uppercase tracking-wider">Focus Areas</dt>
-          <dd class="mt-2 text-3xl font-bold">4</dd>
+          <dt class="text-xs text-gray-400 uppercase tracking-wider">Supported by</dt>
+          <dd class="mt-2 text-2xl font-bold">Mitacs</dd>
         </div>
         <div class="rounded-2xl bg-gray-900/60 border border-gray-800 px-6 py-8 text-center card-glow">
-          <dt class="text-xs text-gray-500 uppercase tracking-wider">Roots</dt>
-          <dd class="mt-2 text-3xl font-bold">UBC</dd>
+          <dt class="text-xs text-gray-400 uppercase tracking-wider">Stage</dt>
+          <dd class="mt-2 text-2xl font-bold">Pre-launch</dd>
         </div>
       </dl>
+      <p class="mt-4 text-xs text-gray-400 text-center">FinTorch's early development was supported by a Mitacs Lab2Market project with the I-INC Foundation for Business Development.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ SERVICES ═══ -->
-<section id="services" class="py-20 sm:py-28">
+<!-- ═══════════════════════════════════════════ WHAT WE'RE BUILDING ═══ -->
+<section id="products" class="py-20 sm:py-28 scroll-mt-24">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl text-center reveal">
-      <p class="text-sm font-semibold tracking-widest uppercase text-blue-400 mb-4">What We Do</p>
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="letter-spacing: -0.02em;">
-        Four ways we move businesses forward
-      </h2>
+      <p class="text-sm font-semibold tracking-widest uppercase text-blue-400 mb-4">What we're building</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">One agent at a time</h2>
     </div>
 
-    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2 reveal">
+    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 reveal">
       <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-purple-500/15 text-purple-300 text-xl font-bold">AI</div>
-        <h3 class="mt-5 text-lg font-semibold">AI Development</h3>
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-semibold">FinTorch</h3>
+          <span class="rounded-full bg-purple-500/15 text-purple-300 px-3 py-1 text-xs font-semibold">In development</span>
+        </div>
         <p class="mt-3 text-sm leading-6 text-gray-400">
-          Custom machine learning models, LLM-powered applications, and intelligent agents — designed around your data and your workflows, not generic templates.
+          Our first agent system: a personal guide to everyday money for beginners. A plain-English tutor, honest spending insights, CRA-aligned savings guidance, and a risk-free sandbox to practice investing.
         </p>
+        <a href="index.html#fintorch" class="mt-5 inline-block text-sm font-semibold text-purple-300 hover:text-purple-200 transition-colors">Meet FinTorch <span aria-hidden="true">→</span></a>
       </div>
-
       <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-500/15 text-blue-300 text-xl font-bold">◈</div>
-        <h3 class="mt-5 text-lg font-semibold">Data Intelligence</h3>
+        <div class="flex items-center justify-between">
+          <h3 class="text-lg font-semibold">What comes next</h3>
+          <span class="rounded-full bg-gray-700/40 text-gray-300 px-3 py-1 text-xs font-semibold">Vision</span>
+        </div>
         <p class="mt-3 text-sm leading-6 text-gray-400">
-          Pipelines, analytics, and decision systems that turn scattered raw data into a durable asset — so every team can see what matters and act on it.
-        </p>
-      </div>
-
-      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-300 text-xl font-bold">⇄</div>
-        <h3 class="mt-5 text-lg font-semibold">Digital Transformation</h3>
-        <p class="mt-3 text-sm leading-6 text-gray-400">
-          We modernize legacy processes end-to-end — automating the repetitive, connecting the disconnected, and giving your organization room to grow.
-        </p>
-      </div>
-
-      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <div class="flex h-11 w-11 items-center justify-center rounded-lg bg-pink-500/15 text-pink-300 text-xl font-bold">{ }</div>
-        <h3 class="mt-5 text-lg font-semibold">Full-Stack Development</h3>
-        <p class="mt-3 text-sm leading-6 text-gray-400">
-          Web platforms, internal tools, and product front ends built with modern stacks — fast to launch, clean to maintain, ready to scale.
+          Money is where we start, not where we stop. The same agent system — private by design, grounded in verified sources, built to explain itself — is how we plan to take on the rest of everyday life.
         </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════════ APPROACH ═══ -->
-<section id="approach" class="py-20 sm:py-28">
+<!-- ═══════════════════════════════════════════ HOW WE WORK ═══ -->
+<section id="how-we-work" class="py-20 sm:py-28 scroll-mt-24">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl text-center reveal">
-      <p class="text-sm font-semibold tracking-widest uppercase text-emerald-400 mb-4">How We Work</p>
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="letter-spacing: -0.02em;">
-        From first conversation to running system
-      </h2>
+      <p class="text-sm font-semibold tracking-widest uppercase text-emerald-400 mb-4">How we work</p>
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Rules we've set for ourselves</h2>
     </div>
 
-    <ol class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 reveal">
-      <li class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <span class="text-sm font-bold text-gray-600">01</span>
-        <h3 class="mt-3 text-lg font-semibold">Understand</h3>
+    <div class="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3 reveal">
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <h3 class="text-lg font-semibold">Honest about stage</h3>
         <p class="mt-3 text-sm leading-6 text-gray-400">
-          We start with your problem, not our tech. A short discovery phase maps your data, constraints, and the outcome that actually matters.
+          We're pre-launch, with no customers yet — and this page will never pretend otherwise. Status labels on our site say what's built, what's in development, and what's still vision.
         </p>
-      </li>
-      <li class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <span class="text-sm font-bold text-gray-600">02</span>
-        <h3 class="mt-3 text-lg font-semibold">Build &amp; Validate</h3>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <h3 class="text-lg font-semibold">Privacy is a constraint, not a feature</h3>
         <p class="mt-3 text-sm leading-6 text-gray-400">
-          We ship a working slice early, measure it against real data, and iterate quickly — so you see evidence, not slide decks.
+          No bank login required, strong encryption, an anonymous on-device mode. These are architecture decisions being made before launch — not patches promised after.
         </p>
-      </li>
-      <li class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
-        <span class="text-sm font-bold text-gray-600">03</span>
-        <h3 class="mt-3 text-lg font-semibold">Deploy &amp; Grow</h3>
+      </div>
+      <div class="rounded-2xl bg-gray-900/60 border border-gray-800 p-8 card-glow">
+        <h3 class="text-lg font-semibold">Built with the people it serves</h3>
         <p class="mt-3 text-sm leading-6 text-gray-400">
-          We take the system to production, hand over clean documentation, and stay available as your needs — and the technology — evolve.
+          FinTorch is being shaped with the people it's for — through conversations with students, newcomers, and first-paycheque professionals — the beginners it exists for, not a boardroom's idea of them.
         </p>
-      </li>
-    </ol>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -276,24 +294,24 @@
 <section class="py-20 sm:py-28">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-4xl rounded-3xl bg-gray-900/60 border border-gray-800 px-8 py-16 text-center reveal">
-      <h2 class="text-3xl font-bold tracking-tight sm:text-4xl" style="letter-spacing: -0.02em;">
-        Have a project in mind?
-      </h2>
-      <p class="mt-4 text-lg text-gray-400 max-w-xl mx-auto">
-        Tell us where you are and where you want to be. We'll tell you honestly whether — and how — we can get you there.
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Talk to the people building it</h2>
+      <p class="mt-4 text-lg text-gray-300 max-w-xl mx-auto">
+        Early access, partnerships, research collaborations — it all starts with one email.
       </p>
-      <div class="mt-8 flex items-center justify-center gap-4">
-        <a href="mailto:gradientx.tech@gmail.com"
-           class="rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors">
-          Get in Touch
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="mailto:gradientx.tech@gmail.com?subject=Hello%20GRADIENTX"
+           class="rounded-md bg-white text-black px-6 py-3 text-sm font-semibold hover:bg-gray-200 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">
+          Get in touch
         </a>
-        <a href="index.html" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors">
-          Back to Home <span aria-hidden="true">→</span>
+        <a href="index.html" class="text-sm font-semibold text-gray-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md px-1 py-1">
+          Back to home <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ═══════════════════════════════════════════ FOOTER ═══ -->
 <footer class="border-t border-gray-800" aria-labelledby="footer-heading">
@@ -303,30 +321,30 @@
       <!-- Brand -->
       <div class="space-y-6">
         <div class="flex items-center gap-2">
-          <img src="logo-footer.png" alt="GRADIENT X Logo" class="h-8 w-8" />
-          <span class="text-xl font-bold text-white">GRADIENT X</span>
+          <img src="logo-footer-sm.png" alt="" width="32" height="32" class="h-8 w-8" />
+          <span class="text-xl font-bold text-white">GRADIENTX</span>
         </div>
         <p class="text-sm leading-6 text-gray-400">
-          Redefining what's possible with the power of technology.
+          An agent system for everyday life — starting with your money.
         </p>
       </div>
 
       <!-- Links -->
       <div class="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
         <div>
-          <h3 class="text-sm font-semibold text-white">Services</h3>
+          <h3 class="text-sm font-semibold text-white">Explore</h3>
           <ul class="mt-4 space-y-3">
-            <li><a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors">AI Development</a></li>
-            <li><a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors">Data Intelligence</a></li>
-            <li><a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors">Digital Transformation</a></li>
-            <li><a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors">Full-Stack Dev</a></li>
+            <li><a href="index.html#fintorch" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">FinTorch</a></li>
+            <li><a href="index.html#how-it-works" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">How it works</a></li>
+            <li><a href="index.html#trust" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Trust &amp; privacy</a></li>
+            <li><a href="index.html#why" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Why we exist</a></li>
           </ul>
         </div>
         <div>
           <h3 class="text-sm font-semibold text-white">Company</h3>
           <ul class="mt-4 space-y-3">
-            <li><a href="#about" class="text-sm text-gray-400 hover:text-white transition-colors">About</a></li>
-            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors">Contact</a></li>
+            <li><a href="company.html" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">About</a></li>
+            <li><a href="mailto:gradientx.tech@gmail.com" class="text-sm text-gray-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 rounded-md">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -334,39 +352,45 @@
 
     <!-- Bottom bar -->
     <div class="mt-16 border-t border-gray-800 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-      <p class="text-xs text-gray-500">
-        &copy; 2026 GRADIENT X. All rights reserved.
+      <p class="text-xs text-gray-400">
+        &copy; 2026 GRADIENTX. All rights reserved. FinTorch offers educational guidance, not financial advice.
       </p>
-      <p class="text-xs text-gray-500">Vancouver, BC, Canada 🇨🇦</p>
+      <p class="text-xs text-gray-400">Vancouver, BC, Canada <span aria-hidden="true">🇨🇦</span></p>
     </div>
   </div>
 </footer>
 
 <!-- ═══════════════════════════════════════════ SCRIPTS ═══ -->
 <script>
-  // Smooth scroll for in-page anchors
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href.length < 2) return;
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
+  document.documentElement.classList.add('js');
 
-  // Reveal sections as they scroll into view
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  // Mobile nav toggle (native CSS scroll-behavior handles smooth in-page scrolling)
+  const toggle = document.getElementById('nav-toggle');
+  const panel = document.getElementById('mobile-nav');
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    panel.hidden = open;
+  });
+  panel.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    toggle.setAttribute('aria-expanded', 'false');
+    panel.hidden = true;
+  }));
+
+  // Reveal sections as they scroll into view (skipped for reduced-motion users)
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('revealed'));
+  } else {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }
 </script>
 </body>
 </html>
