@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetAI for Mac — internal test</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="PetAI for Mac, an internal test by GradientX Technologies Inc." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink: #111827; --muted: #4b5563; --faint: #6b7280; --line: #e5e7eb; --bg: #f9fafb; --card: #ffffff;
+            --accent: #7c3aed; --accent2: #db2777; --warn-bg: #fff7ed; --warn-line: #fdba74; --code: #f3f4f6; }
+    * { box-sizing: border-box; font-family: 'Inter', -apple-system, 'PingFang SC', 'Hiragino Sans GB', sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    a { color: var(--accent); }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+    header { background: linear-gradient(135deg, #1e1b4b, #4c1d95 55%, #831843); color: #fff; padding: 20px 0 56px; }
+    .top { display: flex; justify-content: space-between; align-items: center; }
+    .top a { color: #fff; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .top img { height: 28px; }
+    .lang { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 4px 12px; cursor: pointer; font-size: 14px; }
+    h1 { font-size: 40px; line-height: 1.15; margin: 40px 0 8px; font-weight: 800; }
+    .sub { font-size: 18px; opacity: .9; margin: 0 0 20px; }
+    .badge { display: inline-block; background: rgba(255,255,255,.18); border-radius: 999px; padding: 3px 12px; font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+    .dl { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: var(--ink); text-decoration: none; font-weight: 700;
+          padding: 14px 22px; border-radius: 12px; font-size: 17px; box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+    .dl small { font-weight: 400; color: var(--faint); }
+    .meta { font-size: 13px; opacity: .85; margin-top: 10px; }
+    main { margin-top: -28px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; margin: 0 0 16px; }
+    h2 { font-size: 20px; margin: 0 0 10px; }
+    ol, ul { padding-left: 22px; margin: 8px 0; }
+    li { margin: 6px 0; }
+    .muted { color: var(--muted); }
+    .faint { color: var(--faint); font-size: 14px; }
+    .warn { background: var(--warn-bg); border-color: var(--warn-line); }
+    code, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background: var(--code); border-radius: 6px; padding: 1px 6px; font-size: 13px; word-break: break-all; }
+    table { border-collapse: collapse; width: 100%; font-size: 15px; }
+    td { border-top: 1px solid var(--line); padding: 8px 6px; vertical-align: top; }
+    td:first-child { color: var(--muted); width: 38%; }
+    footer { color: var(--faint); font-size: 13px; padding: 24px 0 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+    [data-lang="zh"] .en, [data-lang="en"] .zh { display: none; }
+    @media (max-width: 520px) { h1 { font-size: 32px; } .dl { width: 100%; justify-content: center; } }
+  </style>
+</head>
+<body data-lang="en">
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <a href="../"><img src="../logo-footer-sm.png" alt="" /> GRADIENTX</a>
+        <button class="lang" id="lang" type="button">中文</button>
+      </div>
+      <span class="badge"><span class="en">Internal test · by invitation</span><span class="zh">内测版 · 仅限受邀测试</span></span>
+      <h1>PetAI <span style="font-weight:600;opacity:.85">for Mac</span></h1>
+      <p class="sub">
+        <span class="en">A little AI companion that lives on your Mac. Talk with it, teach it, and send it to Pet School.</span>
+        <span class="zh">住在你 Mac 里的 AI 小宠物。和它聊天、教它，送它去宠物学校上课。</span>
+      </p>
+      <a class="dl" id="dl" href="https://github.com/gradientx-tech/petai-releases/releases/download/v0.1.0-test3/PetAI-0.1.0-6ec1cdf.dmg">
+        ⬇︎ <span class="en">Download for Mac</span><span class="zh">下载 Mac 版</span> <small>· 287 MB</small>
+      </a>
+      <div class="meta">
+        <span class="en">Version 0.1.0 (internal test 3) · Apple chip (M1 or later) · macOS 13.5 or later</span>
+        <span class="zh">版本 0.1.0（内测 3）· 需要 Apple 芯片（M1 或更新）· macOS 13.5 或更新</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card warn">
+      <h2><span class="en">⚠️ Before you install</span><span class="zh">⚠️ 安装前请先看</span></h2>
+      <p class="en">This test build isn't notarized by Apple yet, so a normal double-click is blocked the first time. Open it with a right-click (step 3 below). After that it opens normally.</p>
+      <p class="zh">这个测试版还没有经过苹果公证，第一次直接双击会被系统拦住。请按下面第 3 步用右键打开，之后就能正常打开了。</p>
+    </section>
+
+    <section class="card">
+      <h2><span class="en">Install</span><span class="zh">安装步骤</span></h2>
+      <ol class="en">
+        <li>Download the installer above and open it.</li>
+        <li>Drag <b>PetAI</b> into the <b>Applications</b> folder.</li>
+        <li>In Applications, <b>right-click PetAI → Open</b>, then click <b>Open</b> in the box that appears.</li>
+        <li>Sign up with your email (you must be 18 or over) and enter the 6-digit code we email you.</li>
+        <li>The first time, PetAI downloads its models (about 4–5.5 GB, see below). Leave it open until it's done; chat starts once the content check is ready.</li>
+      </ol>
+      <ol class="zh">
+        <li>下载上面的安装包，双击打开。</li>
+        <li>把 <b>PetAI</b> 拖进「<b>应用程序</b>」文件夹。</li>
+        <li>在「应用程序」里，<b>右键点 PetAI → 打开</b>，在弹出的窗口里再点「<b>打开</b>」。</li>
+        <li>用邮箱注册（需要年满 18 岁），输入我们发到你邮箱的 6 位验证码。</li>
+        <li>第一次打开时，PetAI 会下载它的模型（约 4–5.5 GB，见下方）。下载完之前请保持打开；内容安全检查准备好之后就能聊天了。</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2><span class="en">What your Mac needs</span><span class="zh">电脑要求</span></h2>
+      <table>
+        <tr><td><span class="en">Chip</span><span class="zh">芯片</span></td>
+            <td><span class="en">Apple chip (M1 or later). Intel Macs aren't supported.</span><span class="zh">Apple 芯片（M1 或更新）。不支持 Intel 芯片的 Mac。</span></td></tr>
+        <tr><td><span class="en">System</span><span class="zh">系统</span></td><td>macOS 13.5+</td></tr>
+        <tr><td><span class="en">Memory</span><span class="zh">内存</span></td>
+            <td><span class="en">8 GB or more. Up to 16 GB it uses the Qwen3-1.7B brain; from 24 GB, Qwen3-4B.</span><span class="zh">8 GB 或以上。16 GB 及以下用 Qwen3-1.7B 作为宠物的大脑，24 GB 起用 Qwen3-4B。</span></td></tr>
+        <tr><td><span class="en">Disk space</span><span class="zh">硬盘空间</span></td>
+            <td><span class="en">About 6 GB free: the app (about 0.6 GB), its brain (1–2.3 GB), the content check (1.5 GB), and its ears for voice (1.6 GB).</span>
+                <span class="zh">约 6 GB 可用空间：App 本身（约 0.6 GB）、宠物大脑（1–2.3 GB）、内容安全检查（1.5 GB）、听懂说话的语音模型（1.6 GB）。</span></td></tr>
+        <tr><td><span class="en">Internet</span><span class="zh">网络</span></td>
+            <td><span class="en">Needed to sign in, for the first downloads, and for Pet School, coins and the shop. Chatting at home works offline.</span>
+                <span class="zh">登录、第一次下载、宠物学校、金币和商店需要联网；在家聊天不联网也可以。</span></td></tr>
+      </table>
+    </section>
+
+    <section class="card">
+      <h2><span class="en">Your privacy</span><span class="zh">隐私</span></h2>
+      <ul class="en">
+        <li>Your pet runs on your Mac. Your chats, what you teach it and what it remembers stay on your computer.</li>
+        <li>Voice is understood on your Mac too; your voice is never uploaded. You can uninstall voice in My skills.</li>
+        <li>Online, PetAI keeps your account, your pet's coins and things, and its Pet School records (its answers to exams and the checks after a class).</li>
+        <li>What you send and teach is checked on your Mac against the content rules below; only a warning (how many, which kind) is counted online, never the words.</li>
+      </ul>
+      <ul class="zh">
+        <li>宠物运行在你的 Mac 上。你们的聊天、你教它的东西、它记得的事都留在你的电脑里。</li>
+        <li>语音识别也在你的 Mac 上进行，声音不会上传。不想要语音的话，可以在「我的本领」里卸载。</li>
+        <li>线上保存的是：你的账号、宠物的金币和物品，以及宠物学校的记录（考试的答案、上完课后的检查）。</li>
+        <li>你发的消息和教的内容，会在你的 Mac 上按下面的规则检查；线上只记录警告的次数和类别，原文不会上传。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2><span class="en">Content rules</span><span class="zh">使用规则</span></h2>
+      <p class="en">Sexual content, sexual content involving anyone under 18, and violence, hate or crime aren't allowed, in chat or in what you teach it. Each one is a warning. Three warnings seal the account (sexual content involving a minor seals it at once); you can appeal. If an account isn't restored within 30 days of being sealed, its pets are deleted.</p>
+      <p class="zh">不允许色情内容、涉及未满 18 岁者的性内容，以及暴力、仇恨或违法内容，聊天和教学都一样。每次违反记一次警告；满 3 次账号会被封存（涉及未成年人的性内容会立即封存），可以申诉。封存后 30 天内没有恢复，宠物会被删除。</p>
+    </section>
+
+    <section class="card">
+      <h2><span class="en">Check your download (optional)</span><span class="zh">核对下载的文件（可选）</span></h2>
+      <p class="muted"><span class="en">In Terminal, run:</span><span class="zh">在「终端」里运行：</span></p>
+      <p><code>shasum -a 256 ~/Downloads/PetAI-0.1.0-6ec1cdf.dmg</code></p>
+      <p class="muted"><span class="en">It should print:</span><span class="zh">应该显示：</span></p>
+      <p><code>0c1ffc567aa62f23852e33e6a02fe5e982726c4afc48b4ee57cea941ef925435</code></p>
+    </section>
+
+    <section class="card">
+      <h2><span class="en">It's a test</span><span class="zh">这是测试版</span></h2>
+      <p class="en">Things will break and change. Your pet and its data stay on your Mac when you install a newer version. Tell us what you find: <a href="mailto:gradientx.tech@gmail.com">gradientx.tech@gmail.com</a></p>
+      <p class="zh">会有问题，也会经常改。装新版本时，你的宠物和它的数据会保留在你的 Mac 上。发现问题请告诉我们：<a href="mailto:gradientx.tech@gmail.com">gradientx.tech@gmail.com</a></p>
+      <p class="faint"><span class="en">All installers:</span><span class="zh">所有版本的安装包：</span> <a href="https://github.com/gradientx-tech/petai-releases/releases">github.com/gradientx-tech/petai-releases</a></p>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>&copy; 2026 GradientX Technologies Inc. All rights reserved.</span>
+    <span>Vancouver, BC, Canada</span>
+  </footer>
+
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("petai.lang"); } catch (e) {}
+      var lang = saved || ((navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+      var set = function (l) {
+        document.body.setAttribute("data-lang", l);
+        document.documentElement.lang = l === "zh" ? "zh-CN" : "en";
+        document.getElementById("lang").textContent = l === "zh" ? "English" : "中文";
+        document.title = l === "zh" ? "PetAI Mac 版 — 内测" : "PetAI for Mac — internal test";
+        try { localStorage.setItem("petai.lang", l); } catch (e) {}
+      };
+      set(lang);
+      document.getElementById("lang").onclick = function () { set(document.body.getAttribute("data-lang") === "zh" ? "en" : "zh"); };
+    })();
+  </script>
+</body>
+</html>
