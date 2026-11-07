@@ -63,8 +63,8 @@
         ⬇︎ <span class="en">Download for Mac</span><span class="zh">下载 Mac 版</span> <small>· 287 MB</small>
       </a>
       <div class="meta">
-        <span class="en">Version 0.1.0 (internal test 3) · Apple chip (M1 or later) · macOS 13.5 or later</span>
-        <span class="zh">版本 0.1.0（内测 3）· 需要 Apple 芯片（M1 或更新）· macOS 13.5 或更新</span>
+        <span class="en">Version 0.1.0 (internal test 3) · Apple chip (M1 or later) · macOS 14 or later · 16 GB memory recommended</span>
+        <span class="zh">版本 0.1.0（内测 3）· 需要 Apple 芯片（M1 或更新）· macOS 14 或更新 · 建议 16 GB 内存</span>
       </div>
     </div>
   </header>
@@ -72,8 +72,8 @@
   <main class="wrap">
     <section class="card warn">
       <h2><span class="en">⚠️ Before you install</span><span class="zh">⚠️ 安装前请先看</span></h2>
-      <p class="en">This test build isn't notarized by Apple yet, so a normal double-click is blocked the first time. Open it with a right-click (step 3 below). After that it opens normally.</p>
-      <p class="zh">这个测试版还没有经过苹果公证，第一次直接双击会被系统拦住。请按下面第 3 步用右键打开，之后就能正常打开了。</p>
+      <p class="en">Not every Mac can run PetAI: check <b>What your Mac needs</b> below first. This test build isn't notarized by Apple yet, so macOS blocks it the first time you open it. Step 3 below shows how to allow it. After that it opens normally.</p>
+      <p class="zh">不是所有 Mac 都能用，请先看下面的「<b>电脑要求</b>」。这个测试版还没有经过苹果公证，第一次打开会被系统拦住，请按下面第 3 步允许它打开，之后就能正常打开了。</p>
     </section>
 
     <section class="card">
@@ -81,14 +81,14 @@
       <ol class="en">
         <li>Download the installer above and open it.</li>
         <li>Drag <b>PetAI</b> into the <b>Applications</b> folder.</li>
-        <li>In Applications, <b>right-click PetAI → Open</b>, then click <b>Open</b> in the box that appears.</li>
+        <li>Open PetAI from Applications. macOS says it can't check the app: click <b>Done</b>, then go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to PetAI, and confirm. (On macOS 14 you can instead <b>right-click PetAI → Open</b>.)</li>
         <li>Sign up with your email (you must be 18 or over) and enter the 6-digit code we email you.</li>
         <li>The first time, PetAI downloads its models (about 4–5.5 GB, see below). Leave it open until it's done; chat starts once the content check is ready.</li>
       </ol>
       <ol class="zh">
         <li>下载上面的安装包，双击打开。</li>
         <li>把 <b>PetAI</b> 拖进「<b>应用程序</b>」文件夹。</li>
-        <li>在「应用程序」里，<b>右键点 PetAI → 打开</b>，在弹出的窗口里再点「<b>打开</b>」。</li>
+        <li>在「应用程序」里打开 PetAI，系统会提示无法验证这个 App：点「<b>完成</b>」，然后打开「<b>系统设置 → 隐私与安全性</b>」，往下找到 PetAI，点「<b>仍要打开</b>」并确认。（macOS 14 上也可以直接<b>右键点 PetAI → 打开</b>。）</li>
         <li>用邮箱注册（需要年满 18 岁），输入我们发到你邮箱的 6 位验证码。</li>
         <li>第一次打开时，PetAI 会下载它的模型（约 4–5.5 GB，见下方）。下载完之前请保持打开；内容安全检查准备好之后就能聊天了。</li>
       </ol>
@@ -99,9 +99,9 @@
       <table>
         <tr><td><span class="en">Chip</span><span class="zh">芯片</span></td>
             <td><span class="en">Apple chip (M1 or later). Intel Macs aren't supported.</span><span class="zh">Apple 芯片（M1 或更新）。不支持 Intel 芯片的 Mac。</span></td></tr>
-        <tr><td><span class="en">System</span><span class="zh">系统</span></td><td>macOS 13.5+</td></tr>
+        <tr><td><span class="en">System</span><span class="zh">系统</span></td><td><span class="en">macOS 14 (Sonoma) or later. macOS 13 and older aren't supported.</span><span class="zh">macOS 14（Sonoma）或更新。不支持 macOS 13 及更早的系统。</span></td></tr>
         <tr><td><span class="en">Memory</span><span class="zh">内存</span></td>
-            <td><span class="en">8 GB or more. Up to 16 GB it uses the Qwen3-1.7B brain; from 24 GB, Qwen3-4B.</span><span class="zh">8 GB 或以上。16 GB 及以下用 Qwen3-1.7B 作为宠物的大脑，24 GB 起用 Qwen3-4B。</span></td></tr>
+            <td><span class="en">16 GB or more recommended. 16 GB uses the Qwen3-1.7B brain; from 24 GB, Qwen3-4B. 8 GB hasn't been tested and is likely too tight while it's in class.</span><span class="zh">建议 16 GB 或以上。16 GB 用 Qwen3-1.7B 作为宠物的大脑，24 GB 起用 Qwen3-4B。8 GB 还没测试过，上课训练时很可能不够用。</span></td></tr>
         <tr><td><span class="en">Disk space</span><span class="zh">硬盘空间</span></td>
             <td><span class="en">About 6 GB free: the app (about 0.6 GB), its brain (1–2.3 GB), the content check (1.5 GB), and its ears for voice (1.6 GB).</span>
                 <span class="zh">约 6 GB 可用空间：App 本身（约 0.6 GB）、宠物大脑（1–2.3 GB）、内容安全检查（1.5 GB）、听懂说话的语音模型（1.6 GB）。</span></td></tr>
@@ -109,6 +109,8 @@
             <td><span class="en">Needed to sign in, for the first downloads, and for Pet School, coins and the shop. Chatting at home works offline.</span>
                 <span class="zh">登录、第一次下载、宠物学校、金币和商店需要联网；在家聊天不联网也可以。</span></td></tr>
       </table>
+      <p class="en faint">Tested on Apple-chip Macs with macOS 15 and macOS 26.</p>
+      <p class="zh faint">已在 macOS 15 和 macOS 26 的 Apple 芯片 Mac 上测试过。</p>
     </section>
 
     <section class="card">
