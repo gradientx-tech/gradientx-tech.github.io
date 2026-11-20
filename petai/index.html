@@ -43,7 +43,6 @@
     td:first-child { color: var(--muted); width: 38%; }
     footer { color: var(--faint); font-size: 13px; padding: 24px 0 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     [data-lang="zh"] .en, [data-lang="en"] .zh { display: none; }
-    .tour video { display: block; width: 100%; max-width: 100%; aspect-ratio: 16 / 10; border-radius: 10px; background: #000; }
     @media (max-width: 520px) { h1 { font-size: 32px; } .dl { width: 100%; justify-content: center; } }
   </style>
 </head>
@@ -71,15 +70,6 @@
   </header>
 
   <main class="wrap">
-    <section class="card tour" id="tour">
-      <h2><span class="en">Take the 3-minute tour</span><span class="zh">3 分钟看懂 PetAI</span></h2>
-      <p class="muted"><span class="en">How to talk with your pet, feed and play with it, and teach it at Pet School.</span><span class="zh">怎么和你的宠物聊天、喂它、陪它玩，以及在宠物学校教它学东西。</span></p>
-      <video controls playsinline preload="metadata" poster="petai-tour-poster.jpg">
-        <source src="petai-tour.mp4" type="video/mp4" />
-      </video>
-      <p class="faint"><span class="en">English, with captions · 2 min 55 s</span><span class="zh">英文界面和字幕 · 2 分 55 秒</span></p>
-    </section>
-
     <section class="card">
       <h2><span class="en">Install</span><span class="zh">安装步骤</span></h2>
       <ol class="en">

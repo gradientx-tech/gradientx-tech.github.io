@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetAI tour</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="A 3-minute tour of PetAI, an AI pet that lives on your Mac, by GradientX Technologies Inc." />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root { --ink: #111827; --muted: #4b5563; --faint: #6b7280; --line: #e5e7eb; --bg: #f9fafb; --card: #ffffff; }
+    * { box-sizing: border-box; font-family: 'Inter', -apple-system, 'PingFang SC', 'Hiragino Sans GB', sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--ink); line-height: 1.6; }
+    .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+    header { background: linear-gradient(135deg, #1e1b4b, #4c1d95 55%, #831843); color: #fff; padding: 20px 0 64px; }
+    .top { display: flex; justify-content: space-between; align-items: center; }
+    .top a { color: #fff; text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .top img { height: 28px; }
+    .lang { background: rgba(255,255,255,.15); color: #fff; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 4px 12px; cursor: pointer; font-size: 14px; }
+    h1 { font-size: 38px; line-height: 1.15; margin: 36px 0 8px; font-weight: 800; }
+    .sub { font-size: 18px; opacity: .9; margin: 0; }
+    main { margin-top: -40px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin: 0 0 16px; }
+    video { display: block; width: 100%; max-width: 100%; aspect-ratio: 16 / 10; border-radius: 10px; background: #000; }
+    .faint { color: var(--faint); font-size: 14px; margin: 10px 4px 2px; }
+    ul { color: var(--muted); padding-left: 22px; margin: 8px 0; }
+    footer { color: var(--faint); font-size: 13px; padding: 16px 0 40px; }
+    [data-lang="zh"] .en, [data-lang="en"] .zh { display: none; }
+    @media (max-width: 520px) { h1 { font-size: 30px; } }
+  </style>
+</head>
+<body data-lang="en">
+  <header>
+    <div class="wrap">
+      <div class="top">
+        <a href="../"><img src="../logo-footer-sm.png" alt="" /> GRADIENTX</a>
+        <button class="lang" id="lang" type="button">中文</button>
+      </div>
+      <h1><span class="en">Meet PetAI</span><span class="zh">认识 PetAI</span></h1>
+      <p class="sub"><span class="en">An AI pet that lives on your Mac: talk to it, raise it and teach it. A 3-minute tour.</span>
+        <span class="zh">住在你 Mac 里的 AI 宠物：和它说话、养它、教它。3 分钟看懂。</span></p>
+    </div>
+  </header>
+  <main class="wrap">
+    <div class="card">
+      <video controls playsinline preload="metadata" poster="poster.jpg">
+        <source src="petai-tour.mp4" type="video/mp4" />
+      </video>
+      <p class="faint"><span class="en">English, with captions · 3 min</span><span class="zh">英文界面和字幕 · 3 分钟</span></p>
+      <ul>
+        <li><span class="en">Its home, feeding and playing</span><span class="zh">它的家、喂食和玩耍</span></li>
+        <li><span class="en">Talking to it out loud</span><span class="zh">按住麦克风和它说话</span></li>
+        <li><span class="en">Today's money quiz</span><span class="zh">每日理财小测验</span></li>
+        <li><span class="en">Pet School: the finance major, knowledge packs and a class</span><span class="zh">宠物学校：理财专业、知识包和上课</span></li>
+        <li><span class="en">Its ID card and birth certificate</span><span class="zh">它的身份证和出生证</span></li>
+        <li><span class="en">Out on your desktop</span><span class="zh">跑到桌面上陪你</span></li>
+      </ul>
+    </div>
+    <footer>© GradientX Technologies Inc.</footer>
+  </main>
+  <script>
+    const b = document.getElementById("lang"), set = (l) => { document.body.dataset.lang = l; b.textContent = l === "zh" ? "English" : "中文"; };
+    b.onclick = () => set(document.body.dataset.lang === "zh" ? "en" : "zh");
+    if ((navigator.language || "").startsWith("zh")) set("zh");
+  </script>
+</body>
+</html>
