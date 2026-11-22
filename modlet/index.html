@@ -85,8 +85,8 @@
         <span class="zh">版本 0.1.1（内测 11）· 需要 Apple 芯片（M1 或更新）· macOS 14 或更新 · 建议 16 GB 内存</span>
       </div>
       <div class="meta win">
-        <span class="en">Version 0.1.0 (Windows internal test 4) · Windows 10 or 11, 64-bit · NVIDIA graphics card with 6 GB or more</span>
-        <span class="zh">版本 0.1.0（Windows 内测 4）· Windows 10 或 11（64 位）· 6 GB 以上显存的 NVIDIA 显卡</span>
+        <span class="en">Version 0.1.0 (Windows internal test 5) · Windows 10 or 11, 64-bit · NVIDIA graphics card with 6 GB or more</span>
+        <span class="zh">版本 0.1.0（Windows 内测 5）· Windows 10 或 11（64 位）· 6 GB 以上显存的 NVIDIA 显卡</span>
       </div>
       <div class="note cn">
         <span class="en">For mainland China, Modlet downloads its models from hf-mirror.com and (on Windows) PyTorch from Alibaba Cloud's mirror, by itself. The installer itself still comes from GitHub for now; if it's slow, email us and we'll send it another way.</span>
@@ -187,9 +187,9 @@
       <p><code>ef7f16e26b524a7ca16d5f801cc58e3061d49cea8bd4636ff28330aef56eaa73</code></p>
       </div>
       <div class="win">
-      <p><code>certutil -hashfile %USERPROFILE%\Downloads\Modlet-Setup-0.1.0-0eaaa98.exe SHA256</code></p>
+      <p><code>certutil -hashfile %USERPROFILE%\Downloads\Modlet-Setup-0.1.0-d2a2415.exe SHA256</code></p>
       <p class="muted"><span class="en">It should print:</span><span class="zh">应该显示：</span></p>
-      <p><code>7091e2fd95411948cbe59237aeea8d54b0288804d0c0c2745edfb0b64ae42e3a</code></p>
+      <p><code>9ea1c74bd1808397354ce9e5c58f0f8bd634da4d524f6c9ce50135d89a84932f</code></p>
       </div>
     </section>
 
@@ -210,8 +210,8 @@
       // Where each download comes from. "cn": mainland China; same files as "gl" until a mainland mirror exists.
       var GH = "https://github.com/gradientx-tech/petai-releases/releases/download/";
       var DL = {
-        gl: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win4/Modlet-Setup-0.1.0-0eaaa98.exe" },
-        cn: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win4/Modlet-Setup-0.1.0-0eaaa98.exe" }
+        gl: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe" },
+        cn: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe" }
       };
       var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
       var put = function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} };
