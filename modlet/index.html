@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modlet for Mac — internal test</title>
+  <title>Modlet — internal test</title>
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="Modlet for Mac, an internal test by GradientX Technologies Inc." />
+  <meta name="description" content="Modlet for Mac and Windows, an internal test by GradientX Technologies Inc." />
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <!-- not render-blocking: Google Fonts doesn't load in mainland China, and the page shouldn't wait for it there -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
   <style>
     :root { --ink: #111827; --muted: #4b5563; --faint: #6b7280; --line: #e5e7eb; --bg: #f9fafb; --card: #ffffff;
             --accent: #7c3aed; --accent2: #db2777; --warn-bg: #fff7ed; --warn-line: #fdba74; --code: #f3f4f6; }
@@ -43,10 +44,16 @@
     td:first-child { color: var(--muted); width: 38%; }
     footer { color: var(--faint); font-size: 13px; padding: 24px 0 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     [data-lang="zh"] .en, [data-lang="en"] .zh { display: none; }
+    [data-os="mac"] .win, [data-os="win"] .mac, [data-region="cn"] .gl, [data-region="gl"] .cn { display: none !important; }
+    .switch { display: inline-flex; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: 3px; margin: 0 8px 12px 0; }
+    .switch button { background: none; border: 0; color: #fff; opacity: .8; padding: 5px 14px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600; }
+    .switch button.on { background: #fff; color: var(--ink); opacity: 1; }
+    .switch .lbl { color: #fff; opacity: .75; font-size: 13px; padding: 5px 4px 5px 10px; }
+    .note { font-size: 13px; background: rgba(255,255,255,.12); border-radius: 10px; padding: 8px 12px; margin-top: 12px; max-width: 620px; }
     @media (max-width: 520px) { h1 { font-size: 32px; } .dl { width: 100%; justify-content: center; } }
   </style>
 </head>
-<body data-lang="en">
+<body data-lang="en" data-region="gl" data-os="mac">
   <header>
     <div class="wrap">
       <div class="top">
@@ -59,12 +66,31 @@
         <span class="en">Your personal AI model. Talk with it, play with it and teach it.</span>
         <span class="zh">你的私人 AI 模型。和它聊天、陪它玩、教它学东西。</span>
       </p>
-      <a class="dl" id="dl" href="https://github.com/gradientx-tech/petai-releases/releases/download/v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg">
+      <div>
+        <span class="switch" role="group"><span class="lbl"><span class="en">Where you are</span><span class="zh">你在</span></span>
+          <button type="button" data-set-region="cn"><span class="en">Mainland China</span><span class="zh">中国大陆</span></button>
+          <button type="button" data-set-region="gl"><span class="en">Elsewhere</span><span class="zh">其他地区</span></button></span>
+        <span class="switch" role="group"><span class="lbl"><span class="en">Computer</span><span class="zh">电脑</span></span>
+          <button type="button" data-set-os="mac">Mac</button>
+          <button type="button" data-set-os="win">Windows</button></span>
+      </div>
+      <a class="dl mac" id="dl-mac" href="#">
         ⬇︎ <span class="en">Download for Mac</span><span class="zh">下载 Mac 版</span> <small>· 338 MB</small>
       </a>
-      <div class="meta">
+      <a class="dl win" id="dl-win" href="#">
+        ⬇︎ <span class="en">Download for Windows</span><span class="zh">下载 Windows 版</span> <small>· 81 MB</small>
+      </a>
+      <div class="meta mac">
         <span class="en">Version 0.1.1 (internal test 11) · Apple chip (M1 or later) · macOS 14 or later · 16 GB memory recommended</span>
         <span class="zh">版本 0.1.1（内测 11）· 需要 Apple 芯片（M1 或更新）· macOS 14 或更新 · 建议 16 GB 内存</span>
+      </div>
+      <div class="meta win">
+        <span class="en">Version 0.1.0 (Windows internal test 4) · Windows 10 or 11, 64-bit · NVIDIA graphics card with 6 GB or more</span>
+        <span class="zh">版本 0.1.0（Windows 内测 4）· Windows 10 或 11（64 位）· 6 GB 以上显存的 NVIDIA 显卡</span>
+      </div>
+      <div class="note cn">
+        <span class="en">For mainland China, Modlet downloads its models from hf-mirror.com and (on Windows) PyTorch from Alibaba Cloud's mirror, by itself. The installer itself still comes from GitHub for now; if it's slow, email us and we'll send it another way.</span>
+        <span class="zh">在中国大陆，Modlet 会自动改从国内镜像下载模型（hf-mirror.com），Windows 版的 PyTorch 改从阿里云镜像下载，不用任何设置。安装包本身目前还是从 GitHub 下载；如果很慢，请发邮件联系我们，我们用其他方式发给你。</span>
       </div>
     </div>
   </header>
@@ -72,23 +98,50 @@
   <main class="wrap">
     <section class="card">
       <h2><span class="en">Install</span><span class="zh">安装步骤</span></h2>
-      <ol class="en">
+      <ol class="en mac">
         <li>Download the installer above and open it.</li>
         <li>Drag <b>Modlet</b> into the <b>Applications</b> folder. (Had PetAI, its old name? It updates itself to Modlet: no need to download it again.)</li>
         <li>Open Modlet from Applications. macOS says it can't check the app: click <b>Done</b>, then go to <b>System Settings → Privacy &amp; Security</b>, scroll down and click <b>Open Anyway</b> next to Modlet, and confirm. (On macOS 14 you can instead <b>right-click Modlet → Open</b>.)</li>
         <li>Sign up with your email (you must be 18 or over) and enter the 6-digit code we email you.</li>
         <li>The first time, Modlet downloads its models (about 4–5.5 GB, see below). Leave it open until it's done; chat starts once the content check is ready.</li>
       </ol>
-      <ol class="zh">
+      <ol class="zh mac">
         <li>下载上面的安装包，双击打开。</li>
         <li>把 <b>Modlet</b> 拖进「<b>应用程序</b>」文件夹。（装过它的旧名字 PetAI？它会自动更新成 Modlet，不用重新下载。）</li>
         <li>在「应用程序」里打开 Modlet，系统会提示无法验证这个 App：点「<b>完成</b>」，然后打开「<b>系统设置 → 隐私与安全性</b>」，往下找到 Modlet，点「<b>仍要打开</b>」并确认。（macOS 14 上也可以直接<b>右键点 Modlet → 打开</b>。）</li>
         <li>用邮箱注册（需要年满 18 岁），输入我们发到你邮箱的 6 位验证码。</li>
         <li>第一次打开时，Modlet 会下载它的模型（约 4–5.5 GB，见下方）。下载完之前请保持打开；内容安全检查准备好之后就能聊天了。</li>
       </ol>
+      <ol class="en win">
+        <li>Download the installer above and open it.</li>
+        <li>The installer isn't signed yet, so Windows SmartScreen warns you: click <b>More info</b>, then <b>Run anyway</b>.</li>
+        <li>Keep the internet on: the installer downloads PyTorch (about 2.6 GB) and checks it. This takes a while; leave it running.</li>
+        <li>Open Modlet from the Start menu. Sign up with your email (you must be 18 or over) and enter the 6-digit code we email you.</li>
+        <li>When you adopt a pet you choose its model (0.6B or 1.7B); it downloads the first time.</li>
+        <li>To update, install the new version over the old one. Don't uninstall first: your pets stay, and PyTorch isn't downloaded again.</li>
+      </ol>
+      <ol class="zh win">
+        <li>下载上面的安装包，双击打开。</li>
+        <li>安装程序还没有签名，Windows 会弹出 SmartScreen 警告：点「<b>更多信息</b>」，再点「<b>仍要运行</b>」。</li>
+        <li>安装时请保持联网：安装程序会下载约 2.6 GB 的 PyTorch 并核对校验和，需要一段时间，请不要关掉。</li>
+        <li>从开始菜单打开 Modlet，用邮箱注册（需要年满 18 岁），输入我们发到你邮箱的 6 位验证码。</li>
+        <li>领养宠物时选模型大小（0.6B 或 1.7B），第一次会下载模型。</li>
+        <li>更新时直接安装新版本覆盖旧版，<b>不要先卸载</b>：宠物都会保留，PyTorch 也不用重新下载。</li>
+      </ol>
     </section>
 
-    <section class="card">
+    <section class="card win">
+      <h2><span class="en">What your PC needs</span><span class="zh">电脑要求</span></h2>
+      <table>
+        <tr><td><span class="en">System</span><span class="zh">系统</span></td><td><span class="en">Windows 10 or 11, 64-bit.</span><span class="zh">Windows 10 或 11（64 位）。</span></td></tr>
+        <tr><td><span class="en">Graphics card</span><span class="zh">显卡</span></td>
+            <td><span class="en">NVIDIA with 6 GB or more (a laptop RTX 3060 is fine), driver 560 or newer. Computers without an NVIDIA card aren't supported yet.</span><span class="zh">6 GB 以上显存的 NVIDIA 显卡（笔记本 RTX 3060 就可以），显卡驱动 560 或更新。暂不支持没有 NVIDIA 显卡的电脑。</span></td></tr>
+        <tr><td><span class="en">Not in this test yet</span><span class="zh">这一版还没有</span></td>
+            <td><span class="en">The pet out on your desktop, and automatic updates.</span><span class="zh">桌面宠物、自动更新。</span></td></tr>
+      </table>
+    </section>
+
+    <section class="card mac">
       <h2><span class="en">What your Mac needs</span><span class="zh">电脑要求</span></h2>
       <table>
         <tr><td><span class="en">Chip</span><span class="zh">芯片</span></td>
@@ -110,12 +163,12 @@
     <section class="card">
       <h2><span class="en">Your privacy</span><span class="zh">隐私</span></h2>
       <ul class="en">
-        <li>Your pet runs on your Mac. Your chats, what you teach it and what it remembers stay on your computer.</li>
-        <li>Voice is understood on your Mac too; your voice is never uploaded. You can uninstall voice in My skills.</li>
+        <li>Your pet runs on your computer. Your chats, what you teach it and what it remembers stay on your computer.</li>
+        <li>Voice is understood on your computer too; your voice is never uploaded. You can uninstall voice in My skills.</li>
       </ul>
       <ul class="zh">
-        <li>宠物运行在你的 Mac 上。你们的聊天、你教它的东西、它记得的事都留在你的电脑里。</li>
-        <li>语音识别也在你的 Mac 上进行，声音不会上传。不想要语音的话，可以在「我的本领」里卸载。</li>
+        <li>宠物运行在你的电脑上。你们的聊天、你教它的东西、它记得的事都留在你的电脑里。</li>
+        <li>语音识别也在你的电脑上进行，声音不会上传。不想要语音的话，可以在「我的本领」里卸载。</li>
       </ul>
     </section>
 
@@ -127,10 +180,17 @@
 
     <section class="card">
       <h2><span class="en">Check your download (optional)</span><span class="zh">核对下载的文件（可选）</span></h2>
-      <p class="muted"><span class="en">In Terminal, run:</span><span class="zh">在「终端」里运行：</span></p>
+      <p class="muted"><span class="en mac">In Terminal, run:</span><span class="zh mac">在「终端」里运行：</span><span class="en win">In Command Prompt, run:</span><span class="zh win">在「命令提示符」里运行：</span></p>
+      <div class="mac">
       <p><code>shasum -a 256 ~/Downloads/Modlet-0.1.1-6a5413f.dmg</code></p>
       <p class="muted"><span class="en">It should print:</span><span class="zh">应该显示：</span></p>
       <p><code>ef7f16e26b524a7ca16d5f801cc58e3061d49cea8bd4636ff28330aef56eaa73</code></p>
+      </div>
+      <div class="win">
+      <p><code>certutil -hashfile %USERPROFILE%\Downloads\Modlet-Setup-0.1.0-0eaaa98.exe SHA256</code></p>
+      <p class="muted"><span class="en">It should print:</span><span class="zh">应该显示：</span></p>
+      <p><code>7091e2fd95411948cbe59237aeea8d54b0288804d0c0c2745edfb0b64ae42e3a</code></p>
+      </div>
     </section>
 
     <section class="card">
@@ -147,18 +207,33 @@
 
   <script>
     (function () {
-      var saved = null;
-      try { saved = localStorage.getItem("petai.lang"); } catch (e) {}
-      var lang = saved || ((navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
-      var set = function (l) {
-        document.body.setAttribute("data-lang", l);
-        document.documentElement.lang = l === "zh" ? "zh-CN" : "en";
-        document.getElementById("lang").textContent = l === "zh" ? "English" : "中文";
-        document.title = l === "zh" ? "Modlet Mac 版 — 内测" : "Modlet for Mac — internal test";
-        try { localStorage.setItem("petai.lang", l); } catch (e) {}
+      // Where each download comes from. "cn": mainland China; same files as "gl" until a mainland mirror exists.
+      var GH = "https://github.com/gradientx-tech/petai-releases/releases/download/";
+      var DL = {
+        gl: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win4/Modlet-Setup-0.1.0-0eaaa98.exe" },
+        cn: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win4/Modlet-Setup-0.1.0-0eaaa98.exe" }
       };
-      set(lang);
-      document.getElementById("lang").onclick = function () { set(document.body.getAttribute("data-lang") === "zh" ? "en" : "zh"); };
+      var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
+      var put = function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} };
+      var b = document.body;
+      var tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+      var region = get("modlet.region") || (/^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/.test(tz) ? "cn" : "gl");
+      var os = get("modlet.os") || (/Windows/i.test(navigator.userAgent) ? "win" : "mac");
+      var lang = get("petai.lang") || ((navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+      var draw = function () {
+        b.setAttribute("data-lang", lang); b.setAttribute("data-region", region); b.setAttribute("data-os", os);
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        document.getElementById("lang").textContent = lang === "zh" ? "English" : "中文";
+        document.title = lang === "zh" ? "Modlet — 内测" : "Modlet — internal test";
+        document.getElementById("dl-mac").href = DL[region].mac;
+        document.getElementById("dl-win").href = DL[region].win;
+        document.querySelectorAll("[data-set-region]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-set-region") === region); });
+        document.querySelectorAll("[data-set-os]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-set-os") === os); });
+      };
+      draw();
+      document.getElementById("lang").onclick = function () { lang = lang === "zh" ? "en" : "zh"; put("petai.lang", lang); draw(); };
+      document.querySelectorAll("[data-set-region]").forEach(function (x) { x.onclick = function () { region = x.getAttribute("data-set-region"); put("modlet.region", region); draw(); }; });
+      document.querySelectorAll("[data-set-os]").forEach(function (x) { x.onclick = function () { os = x.getAttribute("data-set-os"); put("modlet.os", os); draw(); }; });
     })();
   </script>
 </body>
