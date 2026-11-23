@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Modlet — internal test</title>
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="Modlet for Mac and Windows, an internal test by GradientX Technologies Inc." />
+  <meta name="description" content="Modlet for Mac, an internal test by GradientX Technologies Inc." />
   <link rel="icon" type="image/png" href="../favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,6 +45,7 @@
     footer { color: var(--faint); font-size: 13px; padding: 24px 0 40px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
     [data-lang="zh"] .en, [data-lang="en"] .zh { display: none; }
     [data-os="mac"] .win, [data-os="win"] .mac, [data-region="cn"] .gl, [data-region="gl"] .cn { display: none !important; }
+    .switch[hidden] { display: none !important; }
     .switch { display: inline-flex; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.3); border-radius: 999px; padding: 3px; margin: 0 8px 12px 0; }
     .switch button { background: none; border: 0; color: #fff; opacity: .8; padding: 5px 14px; border-radius: 999px; cursor: pointer; font-size: 14px; font-weight: 600; }
     .switch button.on { background: #fff; color: var(--ink); opacity: 1; }
@@ -70,7 +71,7 @@
         <span class="switch" role="group"><span class="lbl"><span class="en">Where you are</span><span class="zh">你在</span></span>
           <button type="button" data-set-region="cn"><span class="en">Mainland China</span><span class="zh">中国大陆</span></button>
           <button type="button" data-set-region="gl"><span class="en">Elsewhere</span><span class="zh">其他地区</span></button></span>
-        <span class="switch" role="group"><span class="lbl"><span class="en">Computer</span><span class="zh">电脑</span></span>
+        <span class="switch" role="group" hidden><span class="lbl"><span class="en">Computer</span><span class="zh">电脑</span></span>
           <button type="button" data-set-os="mac">Mac</button>
           <button type="button" data-set-os="win">Windows</button></span>
       </div>
@@ -89,8 +90,8 @@
         <span class="zh">版本 0.1.0（Windows 内测 5）· Windows 10 或 11（64 位）· 6 GB 以上显存的 NVIDIA 显卡</span>
       </div>
       <div class="note cn">
-        <span class="en">For mainland China, Modlet downloads its models from hf-mirror.com and (on Windows) PyTorch from Alibaba Cloud's mirror, by itself. The installer itself still comes from GitHub for now; if it's slow, email us and we'll send it another way.</span>
-        <span class="zh">在中国大陆，Modlet 会自动改从国内镜像下载模型（hf-mirror.com），Windows 版的 PyTorch 改从阿里云镜像下载，不用任何设置。安装包本身目前还是从 GitHub 下载；如果很慢，请发邮件联系我们，我们用其他方式发给你。</span>
+        <span class="en">For mainland China, Modlet downloads its models from hf-mirror.com by itself. The installer itself still comes from GitHub for now; if it's slow, email us and we'll send it another way.</span>
+        <span class="zh">在中国大陆，Modlet 会自动改从国内镜像下载模型（hf-mirror.com），不用任何设置。安装包本身目前还是从 GitHub 下载；如果很慢，请发邮件联系我们，我们用其他方式发给你。</span>
       </div>
     </div>
   </header>
@@ -218,7 +219,9 @@
       var b = document.body;
       var tz = ""; try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
       var region = get("modlet.region") || (/^Asia\/(Shanghai|Chongqing|Chungking|Harbin|Urumqi|Kashgar)$/.test(tz) ? "cn" : "gl");
-      var os = get("modlet.os") || (/Windows/i.test(navigator.userAgent) ? "win" : "mac");
+      // Windows is off the page for now (2026-11-23): its download, steps and needs are still here, hidden; to bring it
+      // back, take "hidden" off the Computer switch and use: get("modlet.os") || (/Windows/i.test(navigator.userAgent) ? "win" : "mac")
+      var os = "mac";
       var lang = get("petai.lang") || ((navigator.language || "").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
       var draw = function () {
         b.setAttribute("data-lang", lang); b.setAttribute("data-region", region); b.setAttribute("data-os", os);
