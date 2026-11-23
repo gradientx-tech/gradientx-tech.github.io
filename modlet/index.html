@@ -82,8 +82,8 @@
         ⬇︎ <span class="en">Download for Windows</span><span class="zh">下载 Windows 版</span> <small>· 81 MB</small>
       </a>
       <div class="meta mac">
-        <span class="en">Version 0.1.1 (internal test 11) · Apple chip (M1 or later) · macOS 14 or later · 16 GB memory recommended</span>
-        <span class="zh">版本 0.1.1（内测 11）· 需要 Apple 芯片（M1 或更新）· macOS 14 或更新 · 建议 16 GB 内存</span>
+        <span class="en">Version 0.1.2 (internal test 12) · Apple chip (M1 or later) · macOS 14 or later · 16 GB memory recommended</span>
+        <span class="zh">版本 0.1.2（内测 12）· 需要 Apple 芯片（M1 或更新）· macOS 14 或更新 · 建议 16 GB 内存</span>
       </div>
       <div class="meta win">
         <span class="en">Version 0.1.0 (Windows internal test 5) · Windows 10 or 11, 64-bit · NVIDIA graphics card with 6 GB or more</span>
@@ -183,9 +183,9 @@
       <h2><span class="en">Check your download (optional)</span><span class="zh">核对下载的文件（可选）</span></h2>
       <p class="muted"><span class="en mac">In Terminal, run:</span><span class="zh mac">在「终端」里运行：</span><span class="en win">In Command Prompt, run:</span><span class="zh win">在「命令提示符」里运行：</span></p>
       <div class="mac">
-      <p><code>shasum -a 256 ~/Downloads/Modlet-0.1.1-6a5413f.dmg</code></p>
+      <p><code>shasum -a 256 ~/Downloads/<span id="sum-mac-file">Modlet-0.1.2-33b94c6.dmg</span></code></p>
       <p class="muted"><span class="en">It should print:</span><span class="zh">应该显示：</span></p>
-      <p><code>ef7f16e26b524a7ca16d5f801cc58e3061d49cea8bd4636ff28330aef56eaa73</code></p>
+      <p><code id="sum-mac">d8d483b75163af54e5fdcdb281e588c4ca287b11028cb1ddc8d6599dd9948dbf</code></p>
       </div>
       <div class="win">
       <p><code>certutil -hashfile %USERPROFILE%\Downloads\Modlet-Setup-0.1.0-d2a2415.exe SHA256</code></p>
@@ -208,11 +208,14 @@
 
   <script>
     (function () {
-      // Where each download comes from. "cn": mainland China; same files as "gl" until a mainland mirror exists.
+      // Where each download comes from. "cn": mainland China, its own Mac installer since internal test 12 (Chinese money
+      // packs, Baidu Baike, 12356), still on GitHub until a mainland mirror exists; Windows the same file for both.
       var GH = "https://github.com/gradientx-tech/petai-releases/releases/download/";
       var DL = {
-        gl: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe" },
-        cn: { mac: GH + "v0.1.1-test11/Modlet-0.1.1-6a5413f.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe" }
+        gl: { mac: GH + "v0.1.2-test12/Modlet-0.1.2-33b94c6.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe",
+              macFile: "Modlet-0.1.2-33b94c6.dmg", macSum: "d8d483b75163af54e5fdcdb281e588c4ca287b11028cb1ddc8d6599dd9948dbf" },
+        cn: { mac: GH + "v0.1.2-test12/Modlet-CN-0.1.2-33b94c6.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe",
+              macFile: "Modlet-CN-0.1.2-33b94c6.dmg", macSum: "fe4004a4181b3b5ca9db77f273d9c3257384bf7dfe8b96bf96bfe59de462af0d" }
       };
       var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
       var put = function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} };
@@ -229,6 +232,8 @@
         document.getElementById("lang").textContent = lang === "zh" ? "English" : "中文";
         document.title = lang === "zh" ? "Modlet — 内测" : "Modlet — internal test";
         document.getElementById("dl-mac").href = DL[region].mac;
+        document.getElementById("sum-mac-file").textContent = DL[region].macFile;
+        document.getElementById("sum-mac").textContent = DL[region].macSum;
         document.getElementById("dl-win").href = DL[region].win;
         document.querySelectorAll("[data-set-region]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-set-region") === region); });
         document.querySelectorAll("[data-set-os]").forEach(function (x) { x.classList.toggle("on", x.getAttribute("data-set-os") === os); });
