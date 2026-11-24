@@ -82,8 +82,8 @@
         ⬇︎ <span class="en">Download for Windows</span><span class="zh">下载 Windows 版</span> <small>· 81 MB</small>
       </a>
       <div class="meta mac">
-        <span class="en">Version 0.1.3 (internal test 13) · Apple chip (M1 or later) · macOS 14 or later · 16 GB memory recommended</span>
-        <span class="zh">版本 0.1.3（内测 13）· 需要 Apple 芯片（M1 或更新）· macOS 14 或更新 · 建议 16 GB 内存</span>
+        <span class="en">Version 0.1.4 (internal test 14) · Apple chip (M1 or later) · macOS 14 or later · 16 GB memory recommended</span>
+        <span class="zh">版本 0.1.4（内测 14）· 需要 Apple 芯片（M1 或更新）· macOS 14 或更新 · 建议 16 GB 内存</span>
       </div>
       <div class="meta win">
         <span class="en">Version 0.1.0 (Windows internal test 5) · Windows 10 or 11, 64-bit · NVIDIA graphics card with 6 GB or more</span>
@@ -183,9 +183,9 @@
       <h2><span class="en">Check your download (optional)</span><span class="zh">核对下载的文件（可选）</span></h2>
       <p class="muted"><span class="en mac">In Terminal, run:</span><span class="zh mac">在「终端」里运行：</span><span class="en win">In Command Prompt, run:</span><span class="zh win">在「命令提示符」里运行：</span></p>
       <div class="mac">
-      <p><code>shasum -a 256 ~/Downloads/<span id="sum-mac-file">Modlet-0.1.3-55a2abe.dmg</span></code></p>
+      <p><code>shasum -a 256 ~/Downloads/<span id="sum-mac-file">Modlet-0.1.4-29d6221.dmg</span></code></p>
       <p class="muted"><span class="en">It should print:</span><span class="zh">应该显示：</span></p>
-      <p><code id="sum-mac">ae1cf8ea1270469b9b178c72ffd1106c9d32b802ccf47c7ddc8da9851f2abe06</code></p>
+      <p><code id="sum-mac">7c14adec9a5385ed7d38bb88ebbe3ac7210a16c25f30394830a923b24be12de5</code></p>
       </div>
       <div class="win">
       <p><code>certutil -hashfile %USERPROFILE%\Downloads\Modlet-Setup-0.1.0-d2a2415.exe SHA256</code></p>
@@ -212,10 +212,10 @@
       // packs, Baidu Baike, 12356), still on GitHub until a mainland mirror exists; Windows the same file for both.
       var GH = "https://github.com/gradientx-tech/petai-releases/releases/download/";
       var DL = {
-        gl: { mac: GH + "v0.1.3-test13/Modlet-0.1.3-55a2abe.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe",
-              macFile: "Modlet-0.1.3-55a2abe.dmg", macSum: "ae1cf8ea1270469b9b178c72ffd1106c9d32b802ccf47c7ddc8da9851f2abe06" },
-        cn: { mac: GH + "v0.1.3-test13/Modlet-CN-0.1.3-55a2abe.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe",
-              macFile: "Modlet-CN-0.1.3-55a2abe.dmg", macSum: "64f4e734b0f4fb6c85c1e22e410fae313fb34d062d89f1844a7a71906c1cb8c3" }
+        gl: { mac: GH + "v0.1.4-test14/Modlet-0.1.4-29d6221.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe",
+              macFile: "Modlet-0.1.4-29d6221.dmg", macSum: "7c14adec9a5385ed7d38bb88ebbe3ac7210a16c25f30394830a923b24be12de5" },
+        cn: { mac: GH + "v0.1.4-test14/Modlet-CN-0.1.4-29d6221.dmg", win: GH + "v0.1.0-win5/Modlet-Setup-0.1.0-d2a2415.exe",
+              macFile: "Modlet-CN-0.1.4-29d6221.dmg", macSum: "5ea515760280783004c398415d2890264dca56f54d99f5ba51c46135f716f236" }
       };
       var get = function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } };
       var put = function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} };
